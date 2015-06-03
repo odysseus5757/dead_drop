@@ -1,0 +1,51 @@
+<!-- Validation failure messages -->
+
+<% if @classification.errors.any? %>
+  <% @classification.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Edit Classification #<%= @classification.id %></h3>
+      </div>
+      <div class="panel-body">
+        <form action="/update_classification/<%= @classification.id %>" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for classification_name -->
+          <div class="form-group">
+            <label for="classification_name" class="col-sm-2 control-label">
+              Classification name
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="classification_name" name="classification_name" placeholder="Classification name" class="form-control" value="<%= @classification.classification_name %>">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-warning">
+                Update Classification
+              </button>
+              or
+              <a href="/classifications/<%= @classification.id %>">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- End responsive panel example -->
