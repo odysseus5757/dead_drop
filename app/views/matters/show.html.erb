@@ -33,6 +33,15 @@
           </div>
         </div>
       </div>
+
+      <ul class="list group">
+                <% @matter.messages.each do |message| %>
+                  <li class="list-group-item">
+                    Message Number <%= message.id %> , which is classified as <%= message.classification.classification_name %>
+                    </li>
+                    <% end %>
+                    </ul>
+
     </div>
   </div>
 </div>
