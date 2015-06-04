@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def new

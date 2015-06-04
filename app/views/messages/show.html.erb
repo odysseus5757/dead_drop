@@ -11,13 +11,13 @@
           <div class="col-md-12">
             <dl class="dl-horizontal">
               <dt>Sender</dt>
-              <dd><%= @message.sender_id %></dd>
+              <dd><%= @message.sender.username %></dd>
 
               <dt>Recipient</dt>
-              <dd><%= @message.recipient_id %></dd>
+              <dd><%= @message.recipient.username %></dd>
 
               <dt>Classification</dt>
-              <dd><%= @message.classification.classification_name %></dd>
+              <dd><%= @message.classification_id %></dd>
 
               <dt>Message content</dt>
               <dd><%= @message.message_content %></dd>
