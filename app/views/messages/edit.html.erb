@@ -48,7 +48,7 @@
               Classification
             </label>
             <div class="col-sm-10">
-              <input type="text" id="classification_id" name="classification_id" placeholder="Classification" class="form-control" value="<%= @message.classification_id %>">
+              <%= select_tag(:classification_id, options_from_collection_for_select(Classification.all, :id, :classification_name, @message.classification_id), :class => "form-control") %>
             </div>
           </div>
 
